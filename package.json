@@ -1,0 +1,35 @@
+{
+  "name": "serviciosweb_api-graphql",
+  "version": "1.0.0",
+  "description": "API gestion de tareas creada con GraphQL con implementacion de suscripciones",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alvarez0128/serviciosWeb_API-GraphQL-Tareas.git"
+  },
+  "keywords": [
+    "Tasks",
+    "Suscriptions",
+    "GraphQL"
+  ],
+  "author": "C3S4R ALV",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alvarez0128/serviciosWeb_API-GraphQL-Tareas/issues"
+  },
+  "homepage": "https://github.com/Alvarez0128/serviciosWeb_API-GraphQL-Tareas#readme",
+  "dependencies": {
+    "@graphql-tools/schema": "^10.0.3",
+    "apollo-server": "^3.13.0",
+    "apollo-server-express": "^3.13.0",
+    "express": "^4.19.2",
+    "graphql": "^16.8.1",
+    "graphql-subscriptions": "^2.0.0",
+    "nodemon": "^3.1.0",
+    "subscriptions-transport-ws": "^0.11.0"
+  }
+}
