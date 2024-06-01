@@ -1,9 +1,10 @@
-const {PubSub} = require("graphql-subscriptions")
+const { PubSub } = require("graphql-subscriptions");
 const { v4: uuidv4 } = require('uuid');
 
 const pubsub = new PubSub();
+const TASK_CREATED = 'TASK_CREATED';
 
-let tasks=[];
+let tasks = [];
 
 module.exports = {
   Query: {
@@ -19,13 +20,9 @@ module.exports = {
         completed: false,
       };
       tasks.push(newTask);
-      pubsub.publish('TASK_CREATED',{
-        taskCreated:{
-          title:title,
-          description:description,
-          deadline:deadline
-        }
-      })
+      pubsub.publish(TASK_CREATED, {
+        taskCreated: newTask
+      });
       return newTask;
     },
     updateTask: (_, { id, completed }) => {
@@ -46,8 +43,8 @@ module.exports = {
     },
   },
   Subscription: {
-    taskCreated:{
-      subscribe:()=>pubsub.asyncIterator('TASK_CREATED')
+    taskCreated: {
+      subscribe: () => pubsub.asyncIterator(TASK_CREATED)
     }
   },
 };
